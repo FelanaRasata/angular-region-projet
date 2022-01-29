@@ -1,0 +1,28 @@
+<p>recherche-signalement works!</p>
+
+<form (ngSubmit)="onSubmit()">
+
+  <label for="etat">etat</label>
+  <input type="text" [(ngModel)]="etat" name="etat" id="etat">
+
+  <label for="categorie">categorie</label>
+  <input type="text" [(ngModel)]="categorie" name="categorie" id="categorie">
+
+  <label for="dateStart">Date debut</label>
+  <input type="date" [(ngModel)]="dateStart" name="dateStart" id="dateStart">
+
+  <label for="dateEnd">Date fin</label>
+  <input type="date" [(ngModel)]="dateEnd" name="dateEnd" id="dateEnd">
+
+  <button type="submit">Rechercher</button>
+
+</form>
+
+
+<div *ngIf="signalements != null">
+    <p *ngFor="let sign of signalements">{{ sign.description }}</p>
+</div>
+
+<form (ngSubmit)="click()">
+  <button type="submit">Retour liste</button>
+</form>

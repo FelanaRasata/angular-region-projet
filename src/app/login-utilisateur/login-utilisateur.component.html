@@ -1,0 +1,10 @@
+<div>
+  <div *ngIf="isError" >
+    <p>Information Erronée</p>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <p> Login: <input  [(ngModel)]="login" name="login" > </p>
+    <p> Mot de passe: <input [(ngModel)]="mdp"  type="text" name="mdp" > </p>
+    <button>Se Connecter</button>
+  </form>
+</div>

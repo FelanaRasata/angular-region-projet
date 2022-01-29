@@ -1,0 +1,16 @@
+<p>changement-statut works!</p>
+
+
+<form (ngSubmit)="onSubmit()">
+
+  <div>
+
+    <li *ngFor="let etat of etats">
+      <input type="radio"  [checked] (change)="setEtat(etat)"
+      name="nom"  readonly> {{ etat.nom }}
+    </li>
+
+  </div>
+
+  <button type="submit">Changer</button>
+</form>

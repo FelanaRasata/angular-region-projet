@@ -1,0 +1,35 @@
+<h2>Listes signalements de la region </h2>
+
+<table border="1">
+        <tr>
+          <th>Id</th>
+          <th>Region</th>
+          <th colspan="2">Photo</th>
+          <th colspan="2">Categorie</th>
+          <th>Description</th>
+          <th>Utilisateur</th>
+          <th>Etat</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+
+        <tr *ngFor="let signalement of signalements">
+          <td> {{signalement.id}} </td>
+          <td> {{signalement.region.nom}} </td>
+          <td *ngFor="let photo of signalement.photo"> <img [src]="photo.webviewPath" height="200" > </td>
+          <td *ngFor="let cat of signalement.categorie"> {{cat.nom}} </td>
+          <td> {{signalement.description}} </td>
+          <td> {{signalement.utilisateur.nom}} </td>
+          <td> {{signalement.etat[0].nom}} </td>
+          <td> {{signalement.etat[0].dateSignalement}} </td>
+          <td>
+            <button (click)="getFicheSignalement(signalement.id)">Details</button>
+          </td>
+        </tr>
+</table>
+
+<br>
+
+<form (ngSubmit)="click()">
+  <button type="submit">Rechercher</button>
+</form>
