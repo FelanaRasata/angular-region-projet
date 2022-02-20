@@ -11,7 +11,7 @@ export class AdminRegionService {
   constructor(private httpClient: HttpClient) { }
 
   login(login: string, mdp: string): Observable<Token> {
-    const url = 'http://localhost:8080/api/adminRegion/'.concat(login).concat("/").concat(mdp);
+    const url = 'https://spring-projet.herokuapp.com/api/adminRegion/'.concat(login).concat("/").concat(mdp);
     console.log(url);
 
     return this.httpClient.get<Token>(url);
@@ -19,7 +19,7 @@ export class AdminRegionService {
 
   idRegion(login: string, mdp: string): Observable<number>{
 
-    const url = 'http://localhost:8080/api/adminRegion/idregion/'.concat(login).concat("/").concat(mdp);
+    const url = 'https://spring-projet.herokuapp.com/api/adminRegion/idregion/'.concat(login).concat("/").concat(mdp);
     console.log(url);
 
     return this.httpClient.get<number>(url);

@@ -10,10 +10,10 @@ import { Statistique } from '../interface/statistique';
 })
 export class SignalementService {
 
-  private baseURL = "http://localhost:8080/api/signalement/region";
-  private baseFicheURL = "http://localhost:8080/api/signalement/fiche";
-  private baseStatutURL = "http://localhost:8080/api/signalement/statut";
-  private baseSearchURL = "http://localhost:8080/api/signalement/recherche";
+  private baseURL = "https://spring-projet.herokuapp.com/api/signalement/region";
+  private baseFicheURL = "https://spring-projet.herokuapp.com/api/signalement/fiche";
+  private baseStatutURL = "https://spring-projet.herokuapp.com/api/signalement/statut";
+  private baseSearchURL = "https://spring-projet.herokuapp.com/api/signalement/recherche";
 
 
 
