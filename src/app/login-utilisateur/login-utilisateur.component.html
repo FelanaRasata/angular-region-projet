@@ -1,10 +1,13 @@
-<div>
-  <div *ngIf="isError" >
-    <p>Information Erronée</p>
-  </div>
+
+<div class="container">
   <form (ngSubmit)="onSubmit()">
-    <p> Login: <input  [(ngModel)]="login" name="login" > </p>
-    <p> Mot de passe: <input [(ngModel)]="mdp"  type="text" name="mdp" > </p>
-    <button>Se Connecter</button>
+      <h1>Connexion</h1>
+      <div class="signup-message" *ngIf="isError">
+        <a href="#">Informations eronnees</a>
+      </div>
+      <br/>
+      <input [(ngModel)]="login" id="user-name" name="login" placeholder="login" type="text" />
+      <input id="password" name="mdp" placeholder="mot de passe" type="password" [(ngModel)]="mdp"/>
+      <button>Se connecter</button>
   </form>
 </div>

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfilRegionComponent } from './profil-region/profil-region.component';
 import { FicheRegionComponent } from './fiche-region/fiche-region.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignalementRegionComponent } from './signalement-region/signalement-region.component';
@@ -15,7 +14,6 @@ import { LoginUtilisateurComponent } from './login-utilisateur/login-utilisateur
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilRegionComponent,
     FicheRegionComponent,
     SignalementRegionComponent,
     ChangementStatutComponent,

@@ -9,7 +9,7 @@ import { SignalementRegionComponent } from './signalement-region/signalement-reg
 const routes: Routes = [
 {path: "liste-signalement/:idRegion", component: SignalementRegionComponent},
 {path: "", redirectTo: 'login-region', pathMatch: 'full'},
-{path: "fiche-signalement/:id", component: FicheRegionComponent},
+{path: "fiche-signalement/:id/:idRegion", component: FicheRegionComponent},
 {path: "changement-statut/:id/:idRegion", component: ChangementStatutComponent},
 {path: "recherche-signalement/:idRegion", component: RechercheSignalementComponent},
 {path: "login-region", component: LoginUtilisateurComponent},

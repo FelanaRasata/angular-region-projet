@@ -29,11 +29,15 @@ export class SignalementRegionComponent implements OnInit {
   }
 
   public getFicheSignalement(id: string) {
-      this.router.navigate(["fiche-signalement", id]);
+      this.router.navigate(["fiche-signalement", id,this.idRegion]);
   }
 
   public click() {
     this.router.navigate(["recherche-signalement",this.idRegion]);
+  }
+
+  public liste() {
+    this.router.navigate(["liste-signalement",this.idRegion]);
   }
 
 }

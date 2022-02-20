@@ -1,7 +1,55 @@
-<p>fiche-region works!</p>
-<p>{{signalement.description}}</p>
-<p>{{signalement.utilisateur.nom}}</p>
+<!-- <h1>Fiche d'un signalement</h1>
+
+  <fieldset style="border-radius: 0.5rem;text-align: center;">
+
+    <legend><b><h1>{{signalement.utilisateur.nom}}</h1></b></legend>
+    <p>{{signalement.description}}</p>
+    <p *ngFor="let photo of signalement.photo"><img [src]="photo.webviewPath" height="200" ></p>
+    <p *ngFor="let cat of signalement.categorie">{{cat.nom}}</p>
+    <p>{{signalement.etat[0].nom}}</p>
+    <p>{{signalement.etat[0].dateSignalement}}</p>
+    <button (click)="retour()">Retour</button>
+    <button (click)="etat(signalement.id)">Modifier le statut du signalement</button>
+
+  </fieldset>
+ -->
 
 
-<button (click)="retour(signalement.region.index)">Retour</button>
-<button (click)="etat(signalement.id,signalement.region.index)">Modifier le statut du signalement</button>
+ <header class="masthead clear">
+  <div class="centered">
+      <div class="site-branding">
+          <h1 class="site-title">Fiche du signalement</h1>
+          <nav>
+            <ul class="menu">
+              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="liste()">Liste signalements</button></li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+</header>
+
+
+<main class="main-area" >
+
+  <div class="flexbox-container">
+    <div>
+      <picture class="thumbnail" *ngFor="let pic of signalement.photo" >
+        <img [src]="pic.webviewPath" style="width: 300px;">
+      </picture>
+    </div>
+    <div>
+      <div class="card-content">
+          <h2>Signalement de : {{signalement.utilisateur.nom}}</h2>
+          <li *ngFor="let cat of signalement.categorie">{{cat.nom}}</li>
+          <p>{{signalement.description}}</p>
+          <p>Statut : {{signalement.etat[0].nom}}</p>
+          <p>Date du dernier changement : {{signalement.etat[0].dateSignalement}}</p>
+          <button (click)="etat(signalement.id)">Modifier le statut</button>
+      </div>
+    </div>
+</div>
+
+</main>
+
+

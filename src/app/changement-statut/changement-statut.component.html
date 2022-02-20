@@ -1,16 +1,33 @@
-<p>changement-statut works!</p>
 
 
-<form (ngSubmit)="onSubmit()">
 
-  <div>
-
-    <li *ngFor="let etat of etats">
-      <input type="radio"  [checked] (change)="setEtat(etat)"
-      name="nom"  readonly> {{ etat.nom }}
-    </li>
-
+<header class="masthead clear">
+  <div class="centered">
+      <div class="site-branding">
+          <h1 class="site-title">Modification du statut du signalement</h1>
+          <nav>
+            <ul class="menu">
+              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="liste()">Liste signalements</button></li>
+            </ul>
+          </nav>
+      </div>
   </div>
+</header>
 
-  <button type="submit">Changer</button>
-</form>
+<section>
+  <form (ngSubmit)="onSubmit()">
+
+      <div *ngFor="let etat of etats" style="display: inline-block;padding: 10px 80px;">
+        <input type="radio" id="control_01" [checked] (change)="setEtat(etat)" name="nom"  readonly>
+        <label for="control_01">
+          <h2>{{ etat.nom }}</h2>
+        </label>
+      </div>
+
+    <button type="submit">Changer</button>
+
+  </form>
+
+</section>
+

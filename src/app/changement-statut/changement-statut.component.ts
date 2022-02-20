@@ -61,4 +61,12 @@ export class ChangementStatutComponent implements OnInit {
     this.listeSignalement(this.idRegion);
   }
 
+  public click() {
+    this.router.navigate(["recherche-signalement",this.idRegion]);
+  }
+
+  public liste() {
+    this.router.navigate(["liste-signalement",this.idRegion]);
+  }
+
 }

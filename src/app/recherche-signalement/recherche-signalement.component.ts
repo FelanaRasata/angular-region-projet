@@ -8,6 +8,7 @@ import { SignalementService } from '../services/signalement.service';
   templateUrl: './recherche-signalement.component.html',
   styleUrls: ['./recherche-signalement.component.css']
 })
+
 export class RechercheSignalementComponent implements OnInit {
 
   id!: number;
@@ -42,5 +43,20 @@ export class RechercheSignalementComponent implements OnInit {
     this.router.navigate(["liste-signalement",this.id]);
   }
 
+  public retour(idRegion : number) {
+    this.router.navigate(["liste-signalement",idRegion]);
+  }
+
+  public etatt(id: string,idRegion : number) {
+    this.router.navigate(["changement-statut", id,idRegion]);
+  }
+  public liste() {
+    this.router.navigate(["liste-signalement",this.id]);
+
+  }
+
+  public getFicheSignalement(id: string) {
+    this.router.navigate(["fiche-signalement", id,this.id]);
+}
 
 }

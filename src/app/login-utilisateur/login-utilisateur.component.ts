@@ -24,7 +24,7 @@ export class LoginUtilisateurComponent implements OnInit {
       } else {
         localStorage.setItem('tokenRegion',data.token);
         this.adminRegionService.idRegion(this.login,this.mdp).subscribe(data => this.idRegion=data);
-        this.router.navigate(['liste-signalement',this.idRegion]);
+        this.router.navigate(['/liste-signalement',this.idRegion]);
       }
     } );
     console.log(this.login);

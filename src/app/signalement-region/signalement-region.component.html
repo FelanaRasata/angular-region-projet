@@ -1,35 +1,59 @@
-<h2>Listes signalements de la region </h2>
+<!-- <h2>Listes signalements de la region </h2>
 
-<table border="1">
-        <tr>
-          <th>Id</th>
-          <th>Region</th>
-          <th colspan="2">Photo</th>
-          <th colspan="2">Categorie</th>
-          <th>Description</th>
-          <th>Utilisateur</th>
-          <th>Etat</th>
-          <th>Date</th>
-          <th>Actions</th>
-        </tr>
+<fieldset *ngFor="let signalement of signalements" style="border-radius: 0.5rem;text-align: center;">
+  <legend><b><h1>{{signalement.utilisateur.nom}}</h1></b></legend>
+  <p>{{signalement.description}}</p>
+  <p *ngFor="let photo of signalement.photo"><img [src]="photo.webviewPath" height="200" ></p>
+  <p *ngFor="let cat of signalement.categorie">{{cat.nom}}</p>
+  <p>{{signalement.etat[0].nom}}</p>
+  <p>{{signalement.etat[0].dateSignalement}}</p>
+  <button (click)="getFicheSignalement(signalement.id)">Details</button>
 
-        <tr *ngFor="let signalement of signalements">
-          <td> {{signalement.id}} </td>
-          <td> {{signalement.region.nom}} </td>
-          <td *ngFor="let photo of signalement.photo"> <img [src]="photo.webviewPath" height="200" > </td>
-          <td *ngFor="let cat of signalement.categorie"> {{cat.nom}} </td>
-          <td> {{signalement.description}} </td>
-          <td> {{signalement.utilisateur.nom}} </td>
-          <td> {{signalement.etat[0].nom}} </td>
-          <td> {{signalement.etat[0].dateSignalement}} </td>
-          <td>
-            <button (click)="getFicheSignalement(signalement.id)">Details</button>
-          </td>
-        </tr>
-</table>
+</fieldset>
+
 
 <br>
 
 <form (ngSubmit)="click()">
   <button type="submit">Rechercher</button>
-</form>
+</form> -->
+
+
+
+<header class="masthead clear">
+  <div class="centered">
+      <div class="site-branding">
+          <h1 class="site-title">Liste des signalements</h1>
+          <nav>
+            <ul class="menu">
+              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="liste()">Liste signalements</button></li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+</header>
+
+<main class="main-area">
+
+  <div class="centered">
+
+      <section class="cards">
+
+          <article class="card" *ngFor="let signalement of signalements">
+              <picture class="thumbnail">
+                  <img [src]="signalement.photo[0].webviewPath">
+              </picture>
+              <div class="card-content">
+                  <h2>Signalement de : {{signalement.utilisateur.nom}}</h2>
+                  <li *ngFor="let cat of signalement.categorie">{{cat.nom}}</li>
+                  <p>{{signalement.description}}</p>
+                  <button (click)="getFicheSignalement(signalement.id)">Details</button>
+              </div>
+          </article>
+
+      </section>
+
+  </div>
+
+</main>

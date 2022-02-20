@@ -20,7 +20,7 @@ export class FicheRegionComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    // this.idRegion = this.route.snapshot.params['idRegion'];
+    this.idRegion = this.route.snapshot.params['idRegion'];
 
     this.getSignalementFiche(this.id);
   }
@@ -31,12 +31,22 @@ export class FicheRegionComponent implements OnInit {
   });
   }
 
-  public retour(idRegion : number) {
-    this.router.navigate(["liste-signalement",idRegion]);
+  public retour() {
+    this.router.navigate(["liste-signalement",this.idRegion]);
   }
 
-  public etat(id: string,idRegion : number) {
-    this.router.navigate(["changement-statut", id,idRegion]);
+  public liste() {
+    this.router.navigate(["liste-signalement",this.idRegion]);
   }
+
+  public click() {
+    this.router.navigate(["recherche-signalement",this.idRegion]);
+  }
+
+  public etat(id: string) {
+    this.router.navigate(["changement-statut", id,this.idRegion]);
+  }
+
+
 
 }
