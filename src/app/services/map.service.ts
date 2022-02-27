@@ -11,7 +11,7 @@ export class MapService {
   constructor(private http: HttpClient) { }
 
   // getSignalementParIndexRegion(indexRegion:number): Observable<Signalement[]> {
-  //   const url = 'http://localhost:8080/api/signalement/listesignal/Listeoff';
+  //   const url = 'https://spring-projet.herokuapp.com/api/signalement/listesignal/Listeoff';
 
   //   //return this.http.get<Signalement[]>(url+ "/" + indexRegion);
   //   return this.http.get<Signalement[]>(url+ "/" + indexRegion);
@@ -20,7 +20,7 @@ export class MapService {
   // }
 
   // getSignalementParIndexRegion(indexRegion:number): Observable<Signalement[]> {
-  //   const url = 'http://localhost:8080/api/signalement/listesignal/Listeoff';
+  //   const url = 'https://spring-projet.herokuapp.com/api/signalement/listesignal/Listeoff';
 
   //   //return this.http.get<Signalement[]>(url+ "/" + indexRegion);
   //   return this.http.get<Signalement[]>(url+ "/" + indexRegion);
@@ -29,7 +29,7 @@ export class MapService {
   // }
 
   getSignalementParIndexRegion(token: string): Observable<Signalement[]> {
-    const url = 'http://localhost:8080/api/signalement/listesignal/Listeoff'+ '/' + token;
+    const url = 'https://spring-projet.herokuapp.com/api/signalement/listesignal/Listeoff'+ '/' + token;
 
     console.log(url);
 

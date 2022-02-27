@@ -15,7 +15,7 @@ export class AdminRegionService {
   ) { }
 
   login(login: string, mdp: string): Observable<Token> {
-    const url = 'http://localhost:8080/api/adminRegion/'.concat(login).concat("/").concat(mdp);
+    const url = 'https://spring-projet.herokuapp.com/api/adminRegion/'.concat(login).concat("/").concat(mdp);
 
 
 
@@ -24,7 +24,7 @@ export class AdminRegionService {
 
   idRegion(login: string, mdp: string): Observable<number>{
 
-    const url = 'http://localhost:8080/api/adminRegion/idregion/'.concat(login).concat("/").concat(mdp);
+    const url = 'https://spring-projet.herokuapp.com/api/adminRegion/idregion/'.concat(login).concat("/").concat(mdp);
     console.log(url);
 
     return this.httpClient.get<number>(url);
@@ -32,7 +32,7 @@ export class AdminRegionService {
   }
 
   public logOut(token: string){
-    const url = 'http://localhost:8080/api/tokenUtilisateur/logout/'.concat(token);
+    const url = 'https://spring-projet.herokuapp.com/api/tokenUtilisateur/logout/'.concat(token);
     console.log(url);
     this.httpClient.delete(url).subscribe();
   }

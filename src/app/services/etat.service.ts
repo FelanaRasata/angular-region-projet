@@ -8,8 +8,8 @@ import { Etat } from '../interface/etat';
 })
 export class EtatService {
 
-  private baseURL = "http://localhost:8080/api/etat/afficher";
-  private baseURLchangement = "http://localhost:8080/api/etat/changement";
+  private baseURL = "https://spring-projet.herokuapp.com/api/etat/afficher";
+  private baseURLchangement = "https://spring-projet.herokuapp.com/api/etat/changement";
 
   constructor(private httpClient: HttpClient) { }
 

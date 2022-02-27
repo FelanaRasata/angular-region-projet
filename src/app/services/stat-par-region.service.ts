@@ -14,13 +14,13 @@ export class StatParRegionService {
   {}
 
   getStatParIndexRegion(token:string): Observable<StatGenParRegion[]> {
-    const url = 'http://localhost:8080/api/signalement/statistique/parregion/categorie';
+    const url = 'https://spring-projet.herokuapp.com/api/signalement/statistique/parregion/categorie';
     return this.http.get<StatGenParRegion[]>(url+ "/" + token);
 
   }
 
   statParIndexRegion(id:number): Observable<Statistique[]> {
-    const url = 'http://localhost:8080/api/signalement/statistique/region/categorie';
+    const url = 'https://spring-projet.herokuapp.com/api/signalement/statistique/region/categorie';
     return this.http.get<Statistique[]>(url+ "/" + id);
 
   }
