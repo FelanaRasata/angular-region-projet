@@ -6,7 +6,6 @@ import { MapService } from '../services/map.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminRegionService } from '../services/admin-region.service';
 import Swal from 'sweetalert2'
-import { EMSGSIZE } from 'constants';
 
 
 @Component({
