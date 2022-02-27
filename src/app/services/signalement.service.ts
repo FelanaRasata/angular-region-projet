@@ -48,8 +48,6 @@ export class SignalementService {
         "dateEnd":dateEnd
     };
 
-    // console.log(`${this.baseSearchURL}/${id}`);
-    // console.log(search);
 
 
     return this.httpClient.post<Signalement[]>(`${this.baseSearchURL}/${id}`,search);
@@ -57,7 +55,6 @@ export class SignalementService {
 
   signalementStatutRegion(idRegion: number, idStatut: number) {
     const url = "https://spring-projet.herokuapp.com/api/signalement/statut/".concat(idRegion.toString()).concat("/").concat(idStatut.toString());
-    console.log(url);
 
     return this.httpClient.get<Signalement[]>(url);
   }

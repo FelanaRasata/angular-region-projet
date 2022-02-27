@@ -27,8 +27,6 @@ export class LoginUtilisateurComponent implements OnInit {
         this.router.navigate(['liste-signalement',this.idRegion]);
       }
     } );
-    console.log(this.login);
-    console.log(this.mdp);
 
   }
 

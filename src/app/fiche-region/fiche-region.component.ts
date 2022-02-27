@@ -89,7 +89,6 @@ export class FicheRegionComponent implements OnInit {
 
       } else if (result.isDismissed) {
 
-        console.log('Annuler');
 
       }
     })

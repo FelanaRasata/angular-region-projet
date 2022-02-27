@@ -52,7 +52,6 @@ export class ChangementStatutComponent implements OnInit {
   }
 
   public setEtat(etats: Etat) {
-    // console.log(etat);
 
     this.etatt = etats;
     this.etat.index = this.etatt.id;
@@ -60,12 +59,10 @@ export class ChangementStatutComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.etat);
     this.signalementService.updateStatutSignalement(this.id, this.etat).subscribe(data => {
       this.signalement = data;
     });
 
-    console.log(this.signalement);
     this.listeSignalement(this.idRegion);
   }
 
@@ -110,9 +107,6 @@ export class ChangementStatutComponent implements OnInit {
         this.logOut();
 
       } else if (result.isDismissed) {
-
-        console.log('Annuler');
-
       }
     })
   }

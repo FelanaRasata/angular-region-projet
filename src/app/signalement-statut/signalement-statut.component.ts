@@ -26,7 +26,6 @@ export class SignalementStatutComponent implements OnInit {
     this.adminRegionService.authentifiacation(localStorage.getItem('tokenRegion')!);
     this.idRegion = this.route.snapshot.params['idRegion'];
     this.idStatut = this.route.snapshot.params['idStatut'];
-    console.log(this.idStatut);
 
     this.getSignStatut(this.idRegion,this.idStatut);
 

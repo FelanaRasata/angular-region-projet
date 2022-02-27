@@ -75,7 +75,6 @@ export class StatParRegionComponent implements OnInit {
       this.nombreCateg[i] = this.statReg[i].nombre;
     }
 
-    console.log(this.listeNomCateg);
 
 
       const options: any = {

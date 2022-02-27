@@ -31,7 +31,6 @@ export class MapService {
   getSignalementParIndexRegion(token: string): Observable<Signalement[]> {
     const url = 'https://spring-projet.herokuapp.com/api/signalement/listesignal/Listeoff'+ '/' + token;
 
-    console.log(url);
 
     return this.http.get<Signalement[]>(url);
   }
