@@ -1,0 +1,56 @@
+<!-- <p>stat-par-region works!</p>
+
+<p>
+  {{listestatParRegion[0].id}}
+  {{listestatParRegion[0].total}}
+</p> -->
+<header class="masthead clear">
+  <div class="centered">
+      <div class="site-branding">
+          <h1 class="site-title">Statistique</h1>
+          <nav>
+            <ul class="menu">
+              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="liste()">Liste signalements</button></li>
+              <li class="item"><button (click)="stat()">Statistiques</button></li>
+              <li class="item"><button (click)="carte()">Carte</button></li>
+              <li class="item"><button (click)="confirm()">Deconnexion</button></li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+</header>
+<div class="icon-bar">
+  <ul *ngFor="let e of etat">
+    <li><a (click)="signStatut(e.id)">{{e.nom}}</a></li>
+  </ul>
+</div>
+
+  <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <form (ngSubmit)="columnChartParRegion()">
+          <button type="submit" class="btn btn-warning" style="position: relative;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">Voir Statistique par categorie</button>
+        </form>
+
+      <div class="col-md-8">
+        <br>
+
+
+        <div id="chart-column"></div>
+
+        <br><br>
+
+
+
+        <!-- <div id="chartt-column"></div> -->
+      </div>
+
+      <div class="col-md-2"></div>
+
+    </div>
+  </div>
+

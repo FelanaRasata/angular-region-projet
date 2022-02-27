@@ -2,6 +2,10 @@
 
 /* Card Based Layout - Base styles */
 
+/* Import the google web fonts you want to use */
+
+/* Card Based Layout - Base styles */
+
 body {
 	background: hsl(0, 0%, 90%);
 }
@@ -122,7 +126,7 @@ big {
 }
 
 .masthead {
-	background-color: #14213d;
+  background-color: #14213d;
 }
 
 .masthead p, .masthead p a {
@@ -137,24 +141,30 @@ big {
 }
 
 img {
-  display: flex;
-	width: auto;
+	display: block;
+	border: 0;
+	width: 100%;
 	height: auto;
-  flex-wrap: wrap;
+  border-radius: 10px;
 }
 
 
 .card {
 	background: white;
-	margin-bottom: 4em;
-  margin-left: 40%;
-  margin-right: 40%;
-  width: 25%;
+	margin-bottom: 2em;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  border-radius: 10px;
+  transition: 1s;
+  transition-timing-function: ease-in-out;
 }
 
-.card a {
-	color: black;
+.card:hover {
+	background-color: #f0f0f0;
 	text-decoration: none;
+}
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 }
 
 .card a:hover {
@@ -187,6 +197,21 @@ img {
   transition-timing-function: ease-in-out;
 }
 
+.card-content p::-webkit-scrollbar{
+  display: none;
+}
+.card-content p:hover{
+  background-color: white;
+}
+.card-content li{
+  display: block;
+  text-decoration: none;
+  color: #616161;
+  text-align: center;
+
+
+}
+
 /* Flexbox stuff */
 
 @media screen and (min-width: 40em) {
@@ -209,7 +234,7 @@ img {
 }
 
 nav {
-  background:#14213d;
+  background: #14213d;
   padding: 0 15px;
 }
 .menu button{
@@ -262,32 +287,48 @@ button:hover{
   display: inline-block;
   padding: 10px 10px;
 }
+
 .flexbox-container {
-  box-shadow: 0px 0px 10px 0px #e5e5e5;
-  width: 30%;
-  height: auto;
 	display: -ms-flex;
 	display: -webkit-flex;
 	display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  margin: 20px;
-  text-align: center;
-  justify-content: center;
 }
-.flexbox-container h2{
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-	margin-top: 0;
-	margin-bottom: .5em;
-	font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #14213d;
+
+.flexbox-container > div {
+	width: 50%;
+	padding: 10px;
 }
-section{
+
+.flexbox-container > div:first-child {
+	margin-right: 20px;
+}
+
+input {
+  display: inline-block;
+  margin: 50px 50px;
+  color: #384047;
+  background-color: #e8eeef;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    border: none;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 1.2em ;
+    /* width: 100%; */
+}
+
+#chart-column {
+  width: 50%;
+  height: auto;
+  box-shadow: 0px 0px 10px 0px #e5e5e5;
+  border-radius: 5px;
+}
+
+.col-md-8 {
+  height: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+
 }
 
 .icon-bar {

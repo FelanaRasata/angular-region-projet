@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilRegionComponent } from './profil-region.component';
+import { SignalementStatutComponent } from './signalement-statut.component';
 
-describe('ProfilRegionComponent', () => {
-  let component: ProfilRegionComponent;
-  let fixture: ComponentFixture<ProfilRegionComponent>;
+describe('SignalementStatutComponent', () => {
+  let component: SignalementStatutComponent;
+  let fixture: ComponentFixture<SignalementStatutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilRegionComponent ]
+      declarations: [ SignalementStatutComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilRegionComponent);
+    fixture = TestBed.createComponent(SignalementStatutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

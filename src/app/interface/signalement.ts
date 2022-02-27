@@ -8,7 +8,7 @@ import { UtilisateurSignalement } from "./signalement/utilisateur-signalement";
 export class Signalement {
   id!: string;
   description!: string;
-  photo!: PhotoSignalement[];
+  photo!: string[];
   utilisateur!: UtilisateurSignalement;
   coordonnee!: CoordonneeSignalement;
   categorie!: CategorieSignalement[];

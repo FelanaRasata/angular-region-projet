@@ -8,61 +8,61 @@ import { AdminRegionService } from '../services/admin-region.service';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-fiche-region',
-  templateUrl: './fiche-region.component.html',
-  styleUrls: ['./fiche-region.component.css']
+  selector: 'app-signalement-statut',
+  templateUrl: './signalement-statut.component.html',
+  styleUrls: ['./signalement-statut.component.css']
 })
-export class FicheRegionComponent implements OnInit {
+export class SignalementStatutComponent implements OnInit {
 
-  id!: string;
   idRegion!: number;
-
-  signalement!: Signalement;
+  idStatut!: number;
+  signalements!: Signalement[];
   etat!: Etat[];
 
-  constructor(private signalementService: SignalementService,
-    public router: Router, private route: ActivatedRoute,private etatService: EtatService,private adminRegionService: AdminRegionService) { }
+  constructor(private signalementService: SignalementService,private route: ActivatedRoute,
+    public router: Router,private etatService: EtatService,private adminRegionService: AdminRegionService) { }
 
   ngOnInit(): void {
     this.adminRegionService.authentifiacation(localStorage.getItem('tokenRegion')!);
-    this.id = this.route.snapshot.params['id'];
     this.idRegion = this.route.snapshot.params['idRegion'];
+    this.idStatut = this.route.snapshot.params['idStatut'];
+    console.log(this.idStatut);
+
+    this.getSignStatut(this.idRegion,this.idStatut);
 
     this.etatService.getEtat().subscribe(data => {
       this.etat = data;
     });
 
-    this.getSignalementFiche(this.id);
   }
 
-  public getSignalementFiche(id: string) {
-    this.signalementService.getSignalementId(id).subscribe(data => {
-      this.signalement = data;
-  });
-  }
-
-  public retour() {
-    this.router.navigate(["liste-signalement",this.idRegion]);
-  }
-
-  public liste() {
-    this.router.navigate(["liste-signalement",this.idRegion]);
+  getSignStatut(idRegion: number, idStatut: number) {
+    this.signalementService.signalementStatutRegion(idRegion,idStatut).subscribe(data => {
+      this.signalements = data;
+    });
   }
 
   public click() {
     this.router.navigate(["recherche-signalement",this.idRegion]);
   }
 
-  public etats(id: string) {
-    this.router.navigate(["changement-statut", id,this.idRegion]);
+  public liste() {
+    this.router.navigate(["liste-signalement",this.idRegion]);
   }
 
   public stat() {
     this.router.navigate(["statistique",this.idRegion]);
   }
+
   public signStatut(idStatut: number) {
-    this.router.navigate(["signalement-region-statut",this.idRegion,idStatut]);
+    // this.router.navigate(["signalement-region-statut",this.idRegion,idStatut]);
+    this.getSignStatut(this.idRegion,idStatut);
   }
+
+  public getFicheSignalement(id: string) {
+    this.router.navigate(["fiche-signalement", id,this.idRegion]);
+  }
+
   public carte() {
     this.router.navigate(["map-region"]);
   }
@@ -94,5 +94,4 @@ export class FicheRegionComponent implements OnInit {
       }
     })
   }
-
 }

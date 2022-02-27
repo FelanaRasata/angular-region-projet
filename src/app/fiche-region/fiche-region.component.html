@@ -23,19 +23,27 @@
             <ul class="menu">
               <li class="item"><button (click)="click()">Rechercher</button></li>
               <li class="item"><button (click)="liste()">Liste signalements</button></li>
+              <li class="item"><button (click)="stat()">Statistiques</button></li>
+              <li class="item"><button (click)="carte()">Carte</button></li>
+              <li class="item"><button (click)="confirm()">Deconnexion</button></li>
             </ul>
           </nav>
       </div>
   </div>
 </header>
 
+<div class="icon-bar">
+  <ul *ngFor="let e of etat">
+    <li><a (click)="signStatut(e.id)">{{e.nom}}</a></li>
+  </ul>
+</div>
 
 <main class="main-area" >
 
   <div class="flexbox-container">
     <div>
       <picture class="thumbnail" *ngFor="let pic of signalement.photo" >
-        <img [src]="pic.webviewPath" style="width: 300px;">
+        <img [src]="pic" style="width: 300px;">
       </picture>
     </div>
     <div>
@@ -45,7 +53,7 @@
           <p>{{signalement.description}}</p>
           <p>Statut : {{signalement.etat[0].nom}}</p>
           <p>Date du dernier changement : {{signalement.etat[0].dateSignalement}}</p>
-          <button (click)="etat(signalement.id)">Modifier le statut</button>
+          <button *ngIf="signalement.etat[0].index!=4" (click)="etats(signalement.id)">Modifier le statut</button>
       </div>
     </div>
 </div>

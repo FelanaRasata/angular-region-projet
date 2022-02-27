@@ -10,6 +10,9 @@ import { ChangementStatutComponent } from './changement-statut/changement-statut
 import { FormsModule } from '@angular/forms';
 import { RechercheSignalementComponent } from './recherche-signalement/recherche-signalement.component';
 import { LoginUtilisateurComponent } from './login-utilisateur/login-utilisateur.component';
+import { StatParRegionComponent } from './stat-par-region/stat-par-region.component';
+import { SignalementStatutComponent } from './signalement-statut/signalement-statut.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { LoginUtilisateurComponent } from './login-utilisateur/login-utilisateur
     SignalementRegionComponent,
     ChangementStatutComponent,
     RechercheSignalementComponent,
-    LoginUtilisateurComponent
+    LoginUtilisateurComponent,
+    StatParRegionComponent,
+    SignalementStatutComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Etat } from '../interface/etat';
 import { Signalement } from '../interface/signalement';
+import { EtatService } from '../services/etat.service';
 import { SignalementService } from '../services/signalement.service';
+import { AdminRegionService } from '../services/admin-region.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-recherche-signalement',
@@ -19,12 +23,18 @@ export class RechercheSignalementComponent implements OnInit {
   dateEnd!: string;
 
   signalements!: Signalement[];
+  et!: Etat[];
 
   constructor(private signalementService: SignalementService,
-    public router: Router, private route: ActivatedRoute) {}
+    public router: Router, private route: ActivatedRoute,private etatService: EtatService,private adminRegionService: AdminRegionService) {}
 
   ngOnInit(): void {
+    this.adminRegionService.authentifiacation(localStorage.getItem('tokenRegion')!);
     this.id = this.route.snapshot.params['idRegion'];
+
+    this.etatService.getEtat().subscribe(data => {
+      this.et = data;
+    });
   }
 
   public getRechercheSignalement() {
@@ -57,6 +67,46 @@ export class RechercheSignalementComponent implements OnInit {
 
   public getFicheSignalement(id: string) {
     this.router.navigate(["fiche-signalement", id,this.id]);
+}
+
+public stat() {
+  this.router.navigate(["statistique",this.id]);
+}
+
+public signStatut(idStatut: number) {
+  this.router.navigate(["signalement-region-statut",this.id,idStatut]);
+}
+
+public carte() {
+  this.router.navigate(["map-region"]);
+}
+
+logOut() {
+  const token = localStorage.getItem('tokenRegion');
+  this.adminRegionService.logOut(token!);
+  localStorage.removeItem('tokenRegion');
+  this.router.navigate(['']);
+}
+
+async confirm() {
+  Swal.fire({
+    title: 'Voulez-vous vraiment vous déconnecter?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Se deconnecter',
+    cancelButtonText: 'Annuler',
+  }).then((result) => {
+
+    if (result.isConfirmed) {
+
+     this.logOut();
+
+    } else if (result.isDismissed) {
+
+      console.log('Annuler');
+
+    }
+  })
 }
 
 }

@@ -9,16 +9,26 @@
             <ul class="menu">
               <li class="item"><button (click)="click()">Rechercher</button></li>
               <li class="item"><button (click)="liste()">Liste signalements</button></li>
+              <li class="item"><button (click)="stat()">Statistiques</button></li>
+              <li class="item"><button (click)="carte()">Carte</button></li>
+              <li class="item"><button (click)="confirm()">Deconnexion</button></li>
             </ul>
           </nav>
       </div>
   </div>
 </header>
 
-<section>
-  <form (ngSubmit)="onSubmit()">
+<div class="icon-bar">
+  <ul *ngFor="let e of et">
+    <li><a (click)="signStatut(e.id)">{{e.nom}}</a></li>
+  </ul>
+</div>
 
-      <div *ngFor="let etat of etats" style="display: inline-block;padding: 10px 80px;">
+<section>
+  <div class="flexbox-container">
+    <form (ngSubmit)="onSubmit()">
+
+      <div *ngFor="let etat of etats">
         <input type="radio" id="control_01" [checked] (change)="setEtat(etat)" name="nom"  readonly>
         <label for="control_01">
           <h2>{{ etat.nom }}</h2>
@@ -28,6 +38,8 @@
     <button type="submit">Changer</button>
 
   </form>
+  </div>
+
 
 </section>
 

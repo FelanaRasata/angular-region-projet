@@ -1,10 +1,11 @@
+
 <header class="masthead clear">
   <div class="centered">
       <div class="site-branding">
-          <h1 class="site-title">Rechercher un signalement</h1>
+          <h1 class="site-title">Signalements par statut</h1>
           <nav>
             <ul class="menu">
-              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="click()">Recherche avancee</button></li>
               <li class="item"><button (click)="liste()">Liste signalements</button></li>
               <li class="item"><button (click)="stat()">Statistiques</button></li>
               <li class="item"><button (click)="carte()">Carte</button></li>
@@ -16,29 +17,14 @@
 </header>
 
 <div class="icon-bar">
-  <ul *ngFor="let e of et">
+  <ul *ngFor="let e of etat">
     <li><a (click)="signStatut(e.id)">{{e.nom}}</a></li>
   </ul>
 </div>
 
-  <form (ngSubmit)="onSubmit()">
-
-  <input  [(ngModel)]="etat" type="text" name="etat" id="etat" placeholder="statut">
-
-  <input type="text" [(ngModel)]="categorie" name="categorie" id="categorie" placeholder="categorie">
-
-  <input type="date" [(ngModel)]="dateStart" name="dateStart" id="dateStart">
-
-  <input type="date" [(ngModel)]="dateEnd" name="dateEnd" id="dateEnd">
-
-  <button type="submit">Rechercher</button>
-
-</form>
-<br>
 <main class="main-area">
 
   <div class="centered">
-
       <section class="cards" *ngIf="signalements != null">
 
           <article class="card" *ngFor="let signalement of signalements">
@@ -49,6 +35,7 @@
                   <h2>Signalement de : {{signalement.utilisateur.nom}}</h2>
                   <li *ngFor="let cat of signalement.categorie">{{cat.nom}}</li>
                   <p>{{signalement.description}}</p>
+                  <p>{{signalement.etat[0].nom}}</p>
                   <button (click)="getFicheSignalement(signalement.id)">Details</button>
               </div>
           </article>
@@ -58,23 +45,3 @@
   </div>
 
 </main>
-
-
-<!-- <div *ngIf="signalements != null">
-    <p *ngFor="let sign of signalements">{{ sign.description }}</p>
-
-    <fieldset *ngFor="let sign of signalements" style="border-radius: 0.5rem;text-align: center;">
-
-      <legend><b><h1>{{sign.utilisateur.nom}}</h1></b></legend>
-      <p>{{sign.description}}</p>
-      <p *ngFor="let photo of sign.photo"><img [src]="photo.webviewPath" height="200" ></p>
-      <p *ngFor="let cat of sign.categorie">{{cat.nom}}</p>
-      <p>{{sign.etat[0].nom}}</p>
-      <p>{{sign.etat[0].dateSignalement}}</p>
-      <button (click)="retour(sign.region.index)">Retour</button>
-      <button (click)="etatt(sign.id,sign.region.index)">Modifier le statut du signalement</button>
-
-    </fieldset>
-</div>
-
- -->

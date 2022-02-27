@@ -26,28 +26,38 @@
           <h1 class="site-title">Liste des signalements</h1>
           <nav>
             <ul class="menu">
-              <li class="item"><button (click)="click()">Rechercher</button></li>
+              <li class="item"><button (click)="click()">Recherche avancee</button></li>
               <li class="item"><button (click)="liste()">Liste signalements</button></li>
+              <li class="item"><button (click)="stat()">Statistiques</button></li>
+              <li class="item"><button (click)="carte()">Carte</button></li>
+              <li class="item"><button (click)="confirm()">Deconnexion</button></li>
+
             </ul>
           </nav>
       </div>
   </div>
 </header>
 
+<div class="icon-bar">
+  <ul *ngFor="let e of etat">
+    <li><a (click)="signStatut(e.id)">{{e.nom}}</a></li>
+  </ul>
+</div>
+
 <main class="main-area">
 
   <div class="centered">
-
       <section class="cards">
 
           <article class="card" *ngFor="let signalement of signalements">
               <picture class="thumbnail">
-                  <img [src]="signalement.photo[0].webviewPath">
+                  <img [src]="signalement.photo[0]">
               </picture>
               <div class="card-content">
                   <h2>Signalement de : {{signalement.utilisateur.nom}}</h2>
                   <li *ngFor="let cat of signalement.categorie">{{cat.nom}}</li>
                   <p>{{signalement.description}}</p>
+                  <p>{{signalement.etat[0].nom}}</p>
                   <button (click)="getFicheSignalement(signalement.id)">Details</button>
               </div>
           </article>
